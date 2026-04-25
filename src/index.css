@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SJP Cultural — Design System
+   Inspirado em verdes da mata atlântica e dourados de girassol.
+   Todas as cores em HSL.
+*/
+
+@layer base {
+  :root {
+    /* Base — papel rústico claro */
+    --background: 45 35% 97%;
+    --foreground: 130 30% 12%;
+
+    --card: 45 40% 99%;
+    --card-foreground: 130 30% 12%;
+
+    --popover: 45 40% 99%;
+    --popover-foreground: 130 30% 12%;
+
+    /* Verde mata — primário */
+    --primary: 145 55% 22%;
+    --primary-foreground: 45 50% 97%;
+    --primary-glow: 130 45% 38%;
+
+    /* Dourado girassol — destaque */
+    --accent: 42 90% 55%;
+    --accent-foreground: 130 35% 15%;
+    --accent-deep: 35 85% 48%;
+
+    /* Terracota — calor */
+    --secondary: 24 55% 92%;
+    --secondary-foreground: 18 55% 25%;
+
+    --muted: 80 20% 92%;
+    --muted-foreground: 130 15% 38%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 45 50% 97%;
+
+    --border: 80 20% 85%;
+    --input: 80 20% 88%;
+    --ring: 145 55% 32%;
+
+    --radius: 0.875rem;
+
+    /* Gradientes */
+    --gradient-hero: linear-gradient(180deg, hsl(145 55% 12% / 0.55) 0%, hsl(145 55% 8% / 0.85) 100%);
+    --gradient-sun: linear-gradient(135deg, hsl(42 90% 60%) 0%, hsl(28 85% 52%) 100%);
+    --gradient-forest: linear-gradient(135deg, hsl(145 55% 22%) 0%, hsl(130 45% 38%) 100%);
+    --gradient-earth: linear-gradient(180deg, hsl(45 35% 97%) 0%, hsl(45 50% 92%) 100%);
+
+    /* Sombras */
+    --shadow-soft: 0 4px 20px -6px hsl(145 50% 15% / 0.15);
+    --shadow-warm: 0 12px 40px -12px hsl(28 70% 35% / 0.35);
+    --shadow-deep: 0 20px 60px -20px hsl(145 55% 12% / 0.4);
+
+    /* Transições */
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* Sidebar (legado) */
+    --sidebar-background: 45 35% 97%;
+    --sidebar-foreground: 130 30% 12%;
+    --sidebar-primary: 145 55% 22%;
+    --sidebar-primary-foreground: 45 50% 97%;
+    --sidebar-accent: 80 20% 92%;
+    --sidebar-accent-foreground: 130 30% 12%;
+    --sidebar-border: 80 20% 85%;
+    --sidebar-ring: 145 55% 32%;
+  }
+
+  .dark {
+    --background: 145 30% 7%;
+    --foreground: 45 35% 95%;
+    --card: 145 28% 10%;
+    --card-foreground: 45 35% 95%;
+    --popover: 145 28% 10%;
+    --popover-foreground: 45 35% 95%;
+    --primary: 130 45% 55%;
+    --primary-foreground: 145 30% 7%;
+    --primary-glow: 130 50% 65%;
+    --accent: 42 85% 60%;
+    --accent-foreground: 145 30% 7%;
+    --accent-deep: 35 80% 50%;
+    --secondary: 145 25% 16%;
+    --secondary-foreground: 45 35% 95%;
+    --muted: 145 22% 14%;
+    --muted-foreground: 80 15% 65%;
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 45 35% 95%;
+    --border: 145 22% 18%;
+    --input: 145 22% 18%;
+    --ring: 130 45% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .text-gradient-sun {
+    background: var(--gradient-sun);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-forest {
+    background: var(--gradient-forest);
+  }
+
+  .bg-gradient-sun {
+    background: var(--gradient-sun);
+  }
+
+  .bg-gradient-earth {
+    background: var(--gradient-earth);
+  }
+
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-warm { box-shadow: var(--shadow-warm); }
+  .shadow-deep { box-shadow: var(--shadow-deep); }
+
+  .transition-smooth {
+    transition: all 0.4s var(--transition-smooth);
+  }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s var(--transition-smooth) both;
+}
+
+.animate-float {
+  animation: float-slow 6s ease-in-out infinite;
+}
