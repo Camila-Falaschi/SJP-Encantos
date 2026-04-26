@@ -1,4 +1,4 @@
-import heroImg from "@/assets/hero-girassois.jpg";
+import heroImg from "@/assets/portal-sjp.jpg";
 import { Button } from "@/components/ui/button";
 
 export const Hero = () => {
@@ -18,8 +18,8 @@ export const Hero = () => {
           São José dos Pinhais — Paraná
         </span>
         <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[1.05] animate-fade-up" style={{ animationDelay: "0.1s" }}>
-          Onde a tradição<br />
-          <span className="text-gradient-sun">floresce</span>
+          Um portal para a<br />
+          <span className="text-gradient-sun">nossa cultura</span>
         </h1>
         <p className="max-w-2xl mx-auto text-lg md:text-xl text-primary-foreground/90 mb-10 leading-relaxed animate-fade-up" style={{ animationDelay: "0.25s" }}>
           Um convite para descobrir a cultura, a natureza e os sabores que fazem de

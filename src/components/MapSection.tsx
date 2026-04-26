@@ -7,7 +7,7 @@ export interface MapPoint {
 }
 
 const points: MapPoint[] = [
-  { name: "Igreja Ucraniana — Colônia Marcelino", category: "cultura", query: "Igreja Ucraniana Colônia Marcelino São José dos Pinhais" },
+  { name: "Igreja Ucraniana — Colônia Marcelino", category: "cultura", query: "Paróquia Católica Ucraniana Santíssima Trindade" },
   { name: "Museu Atílio Rocco", category: "cultura", query: "Museu Atílio Rocco São José dos Pinhais" },
   { name: "Igreja Matriz São José", category: "cultura", query: "Igreja Matriz São José dos Pinhais" },
   { name: "Colônia Murici", category: "cultura", query: "Colônia Murici São José dos Pinhais" },

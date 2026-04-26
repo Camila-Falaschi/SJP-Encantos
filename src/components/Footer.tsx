@@ -4,9 +4,6 @@ export const Footer = () => (
       <div className="grid md:grid-cols-3 gap-8 mb-8">
         <div>
           <div className="flex items-center gap-2 font-display font-bold text-xl mb-3">
-            <span className="w-9 h-9 rounded-full bg-gradient-sun flex items-center justify-center text-accent-foreground">
-              ☀
-            </span>
             SJP Cultural
           </div>
           <p className="text-sm text-primary-foreground/70 leading-relaxed">

@@ -16,9 +16,6 @@ export const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/50">
       <nav className="container flex items-center justify-between h-16">
         <a href="#top" className="flex items-center gap-2 font-display font-bold text-lg text-primary">
-          <span className="w-8 h-8 rounded-full bg-gradient-sun flex items-center justify-center text-accent-foreground text-sm">
-            ☀
-          </span>
           SJP Cultural
         </a>
 
