@@ -19,8 +19,9 @@ import girassolImg         from "@/assets/girassol-sao-jose-dos-pinhais.png";
 // Natureza
 import parqueSjpImg        from "@/assets/parque-sjp.jpg";
 import parqueFonteImg      from "@/assets/parque-da-fonte.png";
-import cachoeiraPanagroImg from "@/assets/cachoeira-panagro.jpg";
 import parqueLinearImg     from "@/assets/parque-linear.png";
+import cachoeiraPanagroImg from "@/assets/cachoeira-panagro.jpg";
+import cachoeiraCiganosImg from "@/assets/cachoeira-dos-ciganos.jpg";
 import caminhadadImg       from "@/assets/caminhada.jpg";
 
 // Eventos
@@ -46,28 +47,28 @@ const Index = () => {
         imageAlt="Igreja Ucraniana com cúpulas douradas na Colônia Marcelino"
         places={[
           {
+            name: "Colônias",
+            tag: "Tradição rural",
+            description: "Regiões rurais formadas por imigrantes europeus, com tradições, festas típicas e culinária preservadas ao longo das gerações.",
+            image: coloniaMuriciImg,
+          },
+          {
+            name: "Catedral São José",
+            tag: "Centro histórico",
+            description: "Um dos marcos mais antigos da cidade, tombado como patrimônio, teve papel central na formação do centro urbano e da identidade local.",
+            image: igrejaMatrizImg,
+          },
+          {
+            name: "Museu Atílio Rocco",
+            tag: "História",
+            description: "No histórico Palacete Ordine, o museu guarda objetos e registros que contam a trajetória dos pioneiros da cidade.",
+            image: museuImg,
+          },
+          {
             name: "Igreja Ucraniana",
             tag: "Colônia Marcelino",
             description: "Com arquitetura bizantino-ucraniana, a igreja é uma réplica de um templo na Ucrânia e símbolo da imigração no Paraná.",
             image: igrejaUcranianaImg,
-          },
-          {
-            name: "Museu Atílio Rocco",
-            tag: "Memória local",
-            description: "Acervo que preserva objetos, fotografias e histórias dos pioneiros que formaram a cidade.",
-            image: museuImg,
-          },
-          {
-            name: "Igreja Matriz São José",
-            tag: "Centro histórico",
-            description: "Marco religioso e arquitetônico do município, ponto de encontro da fé e da comunidade.",
-            image: igrejaMatrizImg,
-          },
-          {
-            name: "Colônias",
-            tag: "Tradição rural",
-            description: "Comunidade rural com forte herança polonesa, festas típicas e culinária preservada há gerações.",
-            image: coloniaMuriciImg,
           },
         ]}
       />
@@ -85,26 +86,26 @@ const Index = () => {
         places={[
           {
             name: "Caminho do Vinho",
-            tag: "Roteiro turístico",
-            description: "Mais de 40 propriedades familiares oferecem vinhos, suco de uva, doces e cafés em um passeio por colinas verdes.",
+            tag: "Turismo",
+            description: "Roteiro turístico com diversas propriedades familiares que oferecem vinhos, cafés coloniais e produtos típicos em meio à paisagem rural.",
             image: caminhoVinhoImg,
           },
           {
-            name: "Quinta do Sabor",
-            tag: "Vinícola",
-            description: "Vinícola tradicional do Caminho do Vinho, com degustação, gastronomia colonial e vista deslumbrante.",
-            image: quintaSaborImg,
+            name: "Cafés Coloniais",
+            tag: "Caminho do Vinho",
+            description: "Mesas fartas, cafés especiais, receitas de família e produtos coloniais fazem parte da experiência gastronômica da região.",
+            image: cafeColonialImg,
           },
           {
-            name: "Cafés Coloniais",
-            tag: "Gastronomia",
-            description: "Mesa farta com pães caseiros, geleias, queijos, embutidos e doces preparados por famílias locais.",
-            image: cafeColonialImg,
+            name: "Quinta do Sabor",
+            tag: "Colheita de Morangos",
+            description: "Um espaço encantador para colher morangos, fazer piqueniques e curtir momentos especiais em meio à natureza.",
+            image: quintaSaborImg,
           },
           {
             name: "Campo de Girassol",
             tag: "Paisagem",
-            description: "Hectares de girassóis floridos que viram cenário e símbolo do turismo rural sjpense em determinada época do ano.",
+            description: "Um cenário encantador de girassóis que atrai visitantes em busca de fotos e contato com a natureza.",
             image: girassolImg,
           },
         ]}
@@ -122,31 +123,37 @@ const Index = () => {
           {
             name: "Parque São José dos Pinhais",
             tag: "Lazer urbano",
-            description: "Área verde com pista de caminhada, lago e estrutura ideal para o lazer da família em pleno coração da cidade.",
+            description: "Um dos principais parques da cidade, com ampla área verde, lago, pistas de caminhada, espaços para esporte, lazer, piqueniques, além de uma trilha que conecta ao Parque Náutico.",
             image: parqueSjpImg,
+          },
+          {
+            name: "Parque Linear do Rio Itaqui",
+            tag: "Lazer urbano",
+            description: "Amplo parque às margens do Rio Itaqui, com ciclovia, pista de caminhada e espaços pensados para o lazer e convivência.",
+            image: parqueLinearImg,
           },
           {
             name: "Parque da Fonte",
             tag: "Recanto natural",
-            description: "Trilhas sombreadas entre árvores centenárias, fonte de água mineral e mata nativa preservada — um clássico de domingo dos sjpenses.",
+            description: "Parque tradicional com trilhas entre araucárias, fonte de água mineral e áreas de lazer, ideal para momentos tranquilos em meio à natureza.",
             image: parqueFonteImg,
           },
           {
             name: "Cachoeira do Panagro",
-            tag: "Aventura",
-            description: "Queda d'água em meio à mata para quem busca contato direto com a natureza e fotos memoráveis.",
+            tag: "Ecoturismo",
+            description: "Queda d’água em meio à mata, com trilha e ambiente natural preservado para quem busca contato com a natureza.",
             image: cachoeiraPanagroImg,
           },
           {
-            name: "Parque Linear do Rio Itaqui",
-            tag: "Área verde",
-            description: "Amplo parque às margens do Rio Itaqui com jardins desenhados, pistas de caminhada e espaços de convivência visíveis até do alto — um novo pulmão verde da cidade.",
-            image: parqueLinearImg,
+            name: "Cachoeira dos Ciganos",
+            tag: "Ecoturismo",
+            description: "Cachoeira em meio à natureza preservada, com trilhas curtas e cenário ideal para contemplação e conexão com o ambiente natural.",
+            image: cachoeiraCiganosImg,
           },
           {
             name: "Caminhadas na Natureza",
-            tag: "Prefeitura de SJP",
-            description: "A prefeitura organiza roteiros guiados gratuitos por trilhas e áreas verdes do município — perfeitos para famílias e grupos. Acompanhe a programação pelos canais oficiais da Secretaria de Meio Ambiente.",
+            tag: "Evento",
+            description: "Eventos organizados pela prefeitura com caminhadas guiadas em trilhas e áreas rurais, incluindo versões diurnas e noturnas para diferentes experiências na natureza.",
             image: caminhadadImg,
           },
         ]}
@@ -165,32 +172,32 @@ const Index = () => {
         places={[
           {
             name: "Feiras Livres",
-            tag: "Toda semana",
-            description: "Produtores locais levam frutas, verduras, queijos e quitutes às praças e bairros da cidade.",
+            tag: "Semanal",
+            description: "Feiras semanais espalhadas pela cidade, com produtores locais oferecendo frutas, verduras, artesanato e comidas típicas.",
             image: feirasImg,
           },
           {
-            name: "Feira de Inverno",
-            tag: "Sazonal",
-            description: "Artesanato local, gorros, luvas e peças únicas feitas à mão ganham as barracas da feira — o programa perfeito para os dias frios de julho.",
+            name: "Festival de Inverno",
+            tag: "Anual",
+            description: "Evento tradicional com artesanato, gastronomia e atrações culturais que movimentam o centro da cidade durante o inverno.",
             image: feiraInvernoImg,
           },
           {
             name: "Bosque do Coelho",
             tag: "Páscoa",
-            description: "No período da Páscoa, o bosque se transforma em um espetáculo de luz com esculturas iluminadas, coelhos coloridos e decorações encantadoras que emocionam crianças e adultos.",
+            description: "Evento de Páscoa com decoração temática, luzes, atividades interativas e atrações culturais que encantam crianças e adultos.",
             image: bosqueCoelhoImg,
           },
           {
             name: "Casa do Papai Noel",
-            tag: "Dezembro",
-            description: "Entre araucárias e neve artificial, a casinha natalina recebe famílias para uma experiência mágica de Natal — com decoração temática, trilha sonora e a visita ao bom velhinho.",
+            tag: "Natal",
+            description: "Evento natalino no Parque da Fonte com decoração temática, apresentações culturais e a tradicional visita ao Papai Noel.",
             image: casaPapaiNoelImg,
           },
           {
             name: "Aniversário da Cidade",
             tag: "19 de março",
-            description: "Fundada em 19 de março de 1690, SJP celebra seu aniversário com shows gratuitos para dezenas de milhares de pessoas, roda-gigante, exposições e homenagens que tomam o centro da cidade.",
+            description: "O aniversário da cidade reúne grandes shows, atrações culturais e uma estrutura que atrai milhares de pessoas ao centro.",
             image: festaCidadeImg,
           },
         ]}

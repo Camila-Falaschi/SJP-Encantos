@@ -4,19 +4,24 @@ export interface MapPoint {
   name: string;
   category: "cultura" | "turismo" | "natureza" | "eventos";
   query: string;
+  url?: string; // link direto do Google Maps (opcional — substitui o query)
 }
 
 const points: MapPoint[] = [
-  { name: "Igreja Ucraniana — Colônia Marcelino", category: "cultura", query: "Paróquia Católica Ucraniana Santíssima Trindade" },
-  { name: "Museu Atílio Rocco", category: "cultura", query: "Museu Atílio Rocco São José dos Pinhais" },
-  { name: "Igreja Matriz São José", category: "cultura", query: "Igreja Matriz São José dos Pinhais" },
+  { name: "Catedral São José", category: "cultura", query: "Diocese de São José dos Pinhais" },
   { name: "Colônia Murici", category: "cultura", query: "Colônia Murici São José dos Pinhais" },
+  { name: "Colônia Mergulhão", category: "cultura", query: "Colônia Mergulhão São José dos Pinhais" },
+  { name: "Colônia Marcelino", category: "cultura", query: "Colônia Marcelino São José dos Pinhais", url: "https://maps.app.goo.gl/TGthSATCdT8gatUc8" },
+  { name: "Museu Atílio Rocco", category: "cultura", query: "Museu Atílio Rocco São José dos Pinhais" },
+  { name: "Igreja Ucraniana — Colônia Marcelino", category: "cultura", query: "Paróquia Católica Ucraniana Santíssima Trindade" },
   { name: "Caminho do Vinho", category: "turismo", query: "Caminho do Vinho São José dos Pinhais" },
   { name: "Quinta do Sabor", category: "turismo", query: "Quinta do Sabor São José dos Pinhais" },
   { name: "Campo de Girassol", category: "turismo", query: "Campo de Girassol São José dos Pinhais" },
-  { name: "Parque São José dos Pinhais", category: "natureza", query: "Parque São José dos Pinhais" },
-  { name: "Parque da Fonte", category: "natureza", query: "Parque da Fonte São José dos Pinhais" },
-  { name: "Cachoeira do Panagro", category: "natureza", query: "Cachoeira do Panagro São José dos Pinhais" },
+  { name: "Parque São José dos Pinhais", category: "natureza", query: "Parque São José dos Pinhais", url: "https://maps.app.goo.gl/MxgbVFpDLeNRknrJA" },
+  { name: "Parque da Fonte", category: "natureza", query: "Parque da Fonte São José dos Pinhais", url: "https://maps.app.goo.gl/y3hbV8FqjQvhdmPeA" },
+  { name: "Parque Linear do Rio Itaqui", category: "natureza", query: "Parque Linear do Rio Itaqui São José dos Pinhais" },
+  { name: "Cachoeira do Panagro", category: "natureza", query: "Cachoeira do Panagro São José dos Pinhais", url: "https://maps.app.goo.gl/KpzJwyfkVKFngez79" },
+  { name: "Cachoeira dos Ciganos", category: "natureza", query: "Cachoeira dos Ciganos São José dos Pinhais" },
 ];
 
 const categoryColors: Record<MapPoint["category"], string> = {
@@ -62,7 +67,7 @@ export const MapSection = () => {
               {points.map((p) => (
                 <li key={p.name}>
                   <a
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.query)}`}
+                    href={p.url ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.query)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex items-start justify-between gap-3 p-3 rounded-lg hover:bg-background/10 transition-smooth"
