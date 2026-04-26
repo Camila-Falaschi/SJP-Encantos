@@ -1,4 +1,4 @@
-# SJP Encantos
+# SJP Cultural
 
 Site de turismo cultural desenvolvido como Projeto de Extensão II, com o objetivo de divulgar os pontos turísticos, culturais, naturais e eventos de **São José dos Pinhais – PR**.
 
@@ -6,7 +6,7 @@ Site de turismo cultural desenvolvido como Projeto de Extensão II, com o objeti
 
 ## Sobre o projeto
 
-O **SJP Encantos** apresenta de forma visual e interativa os encantos da cidade: das colônias de imigrantes às cachoeiras, do Caminho do Vinho aos parques urbanos. O site conta com um mapa interativo com pins geolocalizados para cada ponto de interesse.
+O **SJP Cultural** apresenta de forma visual e interativa os encantos da cidade: das colônias de imigrantes às cachoeiras, do Caminho do Vinho aos parques urbanos. O site conta com um mapa interativo com pins geolocalizados para cada ponto de interesse.
 
 ---
 
