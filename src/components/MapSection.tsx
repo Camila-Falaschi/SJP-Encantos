@@ -1,34 +1,46 @@
 import { ExternalLink } from "lucide-react";
+import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 
 export interface MapPoint {
   name: string;
   category: "cultura" | "turismo" | "natureza" | "eventos";
   query: string;
-  url?: string; // link direto do Google Maps (opcional — substitui o query)
+  url?: string;
+  lat: number;
+  lng: number;
 }
 
 const points: MapPoint[] = [
-  { name: "Catedral São José", category: "cultura", query: "Diocese de São José dos Pinhais" },
-  { name: "Colônia Murici", category: "cultura", query: "Colônia Murici São José dos Pinhais" },
-  { name: "Colônia Mergulhão", category: "cultura", query: "Colônia Mergulhão São José dos Pinhais" },
-  { name: "Colônia Marcelino", category: "cultura", query: "Colônia Marcelino São José dos Pinhais", url: "https://maps.app.goo.gl/TGthSATCdT8gatUc8" },
-  { name: "Museu Atílio Rocco", category: "cultura", query: "Museu Atílio Rocco São José dos Pinhais" },
-  { name: "Igreja Ucraniana — Colônia Marcelino", category: "cultura", query: "Paróquia Católica Ucraniana Santíssima Trindade" },
-  { name: "Caminho do Vinho", category: "turismo", query: "Caminho do Vinho São José dos Pinhais" },
-  { name: "Quinta do Sabor", category: "turismo", query: "Quinta do Sabor São José dos Pinhais" },
-  { name: "Campo de Girassol", category: "turismo", query: "Campo de Girassol São José dos Pinhais" },
-  { name: "Parque São José dos Pinhais", category: "natureza", query: "Parque São José dos Pinhais", url: "https://maps.app.goo.gl/MxgbVFpDLeNRknrJA" },
-  { name: "Parque da Fonte", category: "natureza", query: "Parque da Fonte São José dos Pinhais", url: "https://maps.app.goo.gl/y3hbV8FqjQvhdmPeA" },
-  { name: "Parque Linear do Rio Itaqui", category: "natureza", query: "Parque Linear do Rio Itaqui São José dos Pinhais" },
-  { name: "Cachoeira do Panagro", category: "natureza", query: "Cachoeira do Panagro São José dos Pinhais", url: "https://maps.app.goo.gl/KpzJwyfkVKFngez79" },
-  { name: "Cachoeira dos Ciganos", category: "natureza", query: "Cachoeira dos Ciganos São José dos Pinhais" },
+  { name: "Catedral São José",           category: "cultura",  lat: -25.53736810764847,  lng: -49.20499154417866,  query: "Diocese de São José dos Pinhais" },
+  { name: "Museu Atílio Rocco",          category: "cultura",  lat: -25.537264649503793, lng: -49.202348099999995, query: "Museu Atílio Rocco São José dos Pinhais" },
+  { name: "Colônia Murici",              category: "cultura",  lat: -25.58024309042357,  lng: -49.13342958465707,  query: "Colônia Murici São José dos Pinhais" },
+  { name: "Colônia Mergulhão",           category: "cultura",  lat: -25.564974589983326, lng: -49.12499061823049,  query: "Colônia Mergulhão São José dos Pinhais" },
+  { name: "Colônia Marcelino",           category: "cultura",  lat: -25.749473903225603, lng: -49.23956053558212,  query: "Colônia Marcelino São José dos Pinhais", url: "https://maps.app.goo.gl/TGthSATCdT8gatUc8" },
+  { name: "Igreja Ucraniana",            category: "cultura",  lat: -25.739910581648342, lng: -49.239692697249396, query: "Paróquia Católica Ucraniana Santíssima Trindade", url: "https://maps.app.goo.gl/5pzEgqE3bq3zR5qc9" },
+  { name: "Caminho do Vinho",            category: "turismo",  lat: -25.571330133262386, lng: -49.14670689421858,  query: "Caminho do Vinho São José dos Pinhais" },
+  { name: "Quinta do Sabor",             category: "turismo",  lat: -25.77276866859947,  lng: -49.17427058465707,  query: "Quinta do Sabor São José dos Pinhais" },
+  { name: "Campo de Girassol",           category: "turismo",  lat: -25.59444697322908,  lng: -49.09837114232853,  query: "Campo de Girassol São José dos Pinhais" },
+  { name: "Parque São José dos Pinhais", category: "natureza", lat: -25.512406318154497, lng: -49.20286411859381,  query: "Parque São José dos Pinhais", url: "https://maps.app.goo.gl/MxgbVFpDLeNRknrJA" },
+  { name: "Parque da Fonte",             category: "natureza", lat: -25.50463335218879,  lng: -49.18104126441787,  query: "Parque da Fonte São José dos Pinhais", url: "https://maps.app.goo.gl/y3hbV8FqjQvhdmPeA" },
+  { name: "Parque Linear do Rio Itaqui", category: "natureza", lat: -25.49975196999488,  lng: -49.13056464232853,  query: "Parque Linear do Rio Itaqui São José dos Pinhais" },
+  { name: "Cachoeira do Panagro",        category: "natureza", lat: -25.696932894372953, lng: -49.14457907547145,  query: "Cachoeira do Panagro São José dos Pinhais", url: "https://maps.app.goo.gl/KpzJwyfkVKFngez79" },
+  { name: "Cachoeira dos Ciganos",       category: "natureza", lat: -25.730119751858894, lng: -49.01024760000001,  query: "Cachoeira dos Ciganos São José dos Pinhais" },
+  { name: "Bosque da Usina",             category: "eventos",  lat: -25.532019718570144, lng: -49.20680749999999,  query: "Bosque da Usina São José dos Pinhais" },
 ];
 
 const categoryColors: Record<MapPoint["category"], string> = {
-  cultura: "bg-primary/10 text-primary border-primary/30",
-  turismo: "bg-accent/15 text-accent-deep border-accent/40",
-  natureza: "bg-primary-glow/15 text-primary border-primary-glow/30",
-  eventos: "bg-secondary text-secondary-foreground border-border",
+  cultura:  "bg-rose-500/20 text-rose-300 border-rose-400/30",
+  turismo:  "bg-amber-400/20 text-amber-300 border-amber-400/30",
+  natureza: "bg-emerald-400/20 text-emerald-300 border-emerald-400/30",
+  eventos:  "bg-sky-400/20 text-sky-300 border-sky-400/30",
+};
+
+const markerColors: Record<MapPoint["category"], string> = {
+  cultura:  "#fb7185",
+  turismo:  "#fbbf24",
+  natureza: "#34d399",
+  eventos:  "#38bdf8",
 };
 
 export const MapSection = () => {
@@ -52,13 +64,43 @@ export const MapSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2 rounded-2xl overflow-hidden shadow-deep border-4 border-accent/20 h-[500px] bg-background">
-            <iframe
-              title="Mapa de São José dos Pinhais"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-49.35%2C-25.65%2C-49.05%2C-25.45&amp;layer=mapnik&amp;marker=-25.5347%2C-49.2061"
+          <div className="lg:col-span-2 rounded-2xl overflow-hidden shadow-deep border-4 border-accent/20 h-[500px] bg-background z-0">
+            <MapContainer
+              center={[-25.62, -49.13]}
+              zoom={11}
               className="w-full h-full"
-              loading="lazy"
-            />
+              scrollWheelZoom={false}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              {points.map((p) => (
+                <CircleMarker
+                  key={p.name}
+                  center={[p.lat, p.lng]}
+                  radius={9}
+                  pathOptions={{
+                    color: markerColors[p.category],
+                    fillColor: markerColors[p.category],
+                    fillOpacity: 0.85,
+                    weight: 2,
+                  }}
+                >
+                  <Popup>
+                    <div className="text-sm font-medium">{p.name}</div>
+                    <a
+                      href={p.url ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.query)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-blue-600 underline"
+                    >
+                      Ver no Google Maps
+                    </a>
+                  </Popup>
+                </CircleMarker>
+              ))}
+            </MapContainer>
           </div>
 
           <div className="bg-background/10 backdrop-blur-md rounded-2xl border border-primary-foreground/10 p-6 max-h-[500px] overflow-y-auto">
